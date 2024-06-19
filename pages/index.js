@@ -9,11 +9,11 @@ export default function Home({ products }) {
       <HeroBanner />
       <Wrapper>
         {/* heading and paragaph start */}
-        <div className="text-center max-w-[800px] mx-auto my-[50px] md:my-[80px]">
-          <div className="text-[28px] md:text-[34px] mb-5 font-semibold leading-tight">
+        <div className="text-center max-w-[800px] mx-auto my-[40px] md:my-[80px]">
+          <div className="text-md md:text-[28px] lg:text-[34px] mb-5 font-semibold leading-tight">
             Chinese home textile product manufacturer
           </div>
-          <div className="text-md md:text-xl">
+          <div className="text-sm md:text-md lg:text-xl">
             We mainly produce and manufacture home textile products such as
             curtain fabrics, curtain finished products, bedding, four piece
             sets, duvet covers, tablecloths, etc. Our products can be customized
@@ -23,7 +23,7 @@ export default function Home({ products }) {
         {/* heading and paragaph end */}
 
         {/* products grid start */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 my-14 px-5 md:px-0 ">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 my-14 px-2 md:px-0 ">
           {products?.data?.map((product) => (
             <ProductCard key={product?.id} data={product} />
           ))}

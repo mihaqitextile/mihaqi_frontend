@@ -14,7 +14,7 @@ const Category = ({ category, products, slug }) => {
 
   const { data, error, isLoading } = useSWR(
     `/api/products?populate=*&filters[categories][slug][$eq]=${slug}&pagination[page]=${pageIndex}&pagination[pageSize]=${maxResult}`,
-    fetchDataFromApi,
+    fetch,
     {
       fallbackData: products,
     }
@@ -64,7 +64,7 @@ const Category = ({ category, products, slug }) => {
         {/* PAGINATION BUTTONS END */}
         {isLoading && (
           <div className="absolute top-0 left-0 w-full h-full bg-white/[0.5] flex flex-col gap-5 justify-center items-center">
-            <Image src={"/logo.svg"} alt="Loading" width={150} height={150} />
+            <Image src={"/logo.png"} alt="Loading" width={150} height={150} />
             <span className="text-2xl font-medium">Loading...</span>
           </div>
         )}
@@ -96,6 +96,7 @@ export async function getStaticProps({ params: { slug } }) {
   const products = await fetchDataFromApi(
     `/api/products?populate=*&filters[categories][slug][$eq]=${slug}&pagination[page]=1&pagination[pageSize]=${maxResult}`
   );
+  console.log(products);
 
   return {
     props: {
